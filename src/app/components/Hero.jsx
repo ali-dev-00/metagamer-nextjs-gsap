@@ -3,24 +3,24 @@ import React, { useRef, useState } from 'react'
 
 const Hero = () => {
 
-    const [currentIndex, setcurrentIndex] = useState(1);
-    const [hasClicked, sethasClicked] = useState(false);
-    const [isLoading, setisLoading] = useState(true);
-    const [loadedVideos, setloadedVideos] = useState(0);
-    const totalVideos = 3;
-    const nextVideodRef = useRef(null);
+    const [currentIndex, setCurrentIndex] = useState(1);
+    const [hasClicked, setHasClicked] = useState(false);
+
+    const [loading, setLoading] = useState(true);
+    const [loadedVideos, setLoadedVideos] = useState(0);
+
+    const totalVideos = 4;
+    const nextVdRef = useRef(null);
 
     const handleVideoLoad = (prev) => {
-        setloadedVideos(prev + 1);
+        setLoadedVideos(prev + 1);
     }
     const upcomingVideoIndex = (currentIndex % totalVideos) + 1;
     const handleMiniVdClick = () => {
+        setHasClicked(true);
+        setCurrentIndex((prevIndex) => (prevIndex % totalVideos) + 1);
+    };
 
-        sethasClicked(true);
-        setcurrentIndex(upcomingVideoIndex);
-
-
-    }
     const getVideoSrc = (index) => `/videos/hero-${index}.mp4`;
 
     return (
@@ -30,8 +30,8 @@ const Hero = () => {
                     <div className='mask-clip-path absolute-center z-50 size-64 cursor-pointer overflow-hidden rounded-lg ' >
                         <div className='origin-center' onClick={handleMiniVdClick}>
                             <video
-                                ref={nextVideodRef}
-                                src={getVideoSrc(currentIndex + 1)}
+                                ref={nextVdRef}
+                                src={getVideoSrc((currentIndex % totalVideos) + 1)}
                                 loop
                                 muted
                                 id='current-video'
@@ -41,15 +41,18 @@ const Hero = () => {
                         </div>
                     </div>
                     <video
-                        ref={nextVideodRef}
+                        ref={nextVdRef}
                         src={getVideoSrc(currentIndex)}
                         loop
                         muted
                         id='next-video'
                         className='absolute-center invisible absolute z-20 size-64 ovject-center object-cover '
+                        onLoadedData={handleVideoLoad}
                     />
                     <video
-                        src={getVideoSrc(currentIndex === totalVideos - 1 ? 1 : currentIndex)}
+                        src={getVideoSrc(
+                            currentIndex === totalVideos - 1 ? 1 : currentIndex
+                        )}
                         autoPlay
                         loop
                         muted
@@ -63,6 +66,7 @@ const Hero = () => {
                 <div className='absolute left-0 top-0 z-40 size-full' >
                     <div className='mt-24 px-5 sm:px-10'>
                         <h1 className='special-font hero-heading text-blue-100'>redefi<b >n</b>e</h1>
+                        <p className='mb-5 max-w-64 font-robert=regular text-blue-100' >Enter the Metagame Layer <br /> Unleash the Play Economy</p>
                     </div>
                 </div>
             </div>
