@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
     useGSAP(() => {
-   
+
         const clipAnimation = gsap.timeline({
             scrollTrigger: {
                 trigger: "#clip",

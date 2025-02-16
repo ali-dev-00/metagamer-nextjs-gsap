@@ -7,7 +7,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const AnimatedTitle = ({ title, containerClass }) => {
   const containerRef = useRef(null);
-
   useEffect(() => {
     const ctx = gsap.context(() => {
       const titleAnimation = gsap.timeline({
@@ -18,7 +17,6 @@ const AnimatedTitle = ({ title, containerClass }) => {
           toggleActions: "play none none reverse",
         },
       });
-
       titleAnimation.to(
         ".animated-word",
         {
