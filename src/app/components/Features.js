@@ -1,5 +1,23 @@
 import React from 'react'
 
+
+const RentoCard = ({src, title, description , isComingSoon}) => {
+    return (
+        <div className='relative size-full'>
+           <video 
+            src={src}
+            loop 
+            muted 
+            autoPlay 
+            className='absolute left-0 top-0 size-full object-center object-cover'
+           />
+           {title} 
+        </div>
+    )
+}
+
+
+
 const Features = () => {
   return (
     <section className='bg-black pb-52'>
@@ -13,9 +31,9 @@ const Features = () => {
                 on your world
             </p>
         </div>
-        <div className='border-bg-hsla relative mb-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh]' >
+        <div className='border-hsla relative mb-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh]' >
            <RentoCard 
-           src="video/feature-1.mp.4"  
+           src="videos/feature-1.mp4"  
            title={<>radi<b>n</b>t</>}  
            description="A cross-platform metagame app, turning your activities across Web2 and Web3 games into a rewarding adventure."  
            />  
