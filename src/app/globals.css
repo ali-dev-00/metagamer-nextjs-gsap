@@ -6,7 +6,7 @@
 
 body {
   width: 100dvw;
-  overflow-x: hidden;
+  overflow-x: hidden  !important;
   background-color: #dfdff0;
   font-family: "General Sans", sans-serif;
 }
