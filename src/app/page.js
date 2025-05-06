@@ -4,6 +4,8 @@ import About from "./components/About";
 import Navbar from "./components/Navbar";
 import Features from "./components/Features";
 import Story from "./components/Story";
+import Footer from "./components/Footer";
+import Contact from "./components/Contact";
 
 const page = () => {
   return (
@@ -13,6 +15,8 @@ const page = () => {
       <About/>
       <Features/>
       <Story/>
+      <Contact/>
+      <Footer />
     </main>
   ) 
 };
